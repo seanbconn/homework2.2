@@ -71,7 +71,7 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
-# model.destroy_all
+Model.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
@@ -178,7 +178,7 @@ new_actor11["name"] = "Anne Hathaway"
 new_actor11.save
 
 # Build movie_id
-batmanbegins = Movie.find_by({"title" => "Batman Begin"})
+batmanbegins = Movie.find_by({"title" => "Batman Begins"})
 thedarkknight = Movie.find_by({"title" => "The Dark Knight"})
 thedarkknightrises = Movie.find_by({"title" => "The Dark Knight Rises"})
 
@@ -248,7 +248,7 @@ new_role8.save
 new_role9 = Role.new
 new_role9["movie_id"] = thedarkknight["id"]
 new_role9["actor_id"] = caine["id"]
-new_role9["character_name"] = Alfred
+new_role9["character_name"] = "Alfred"
 new_role9.save
 
 new_role10 = Role.new
