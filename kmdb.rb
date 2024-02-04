@@ -71,7 +71,10 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
-Model.destroy_all
+Actor.destroy_all
+Movie.destroy_all
+Studio.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
@@ -105,11 +108,12 @@ Model.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+# Studio
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
 new_studio.save
 
-# Build studio_id
+# Movies
 warnerbros = Studio.find_by({"name" => "Warner Bros."})
 
 new_movie1 = Movie.new
@@ -132,6 +136,8 @@ new_movie3["year_released"] = "2012"
 new_movie3["rated"] = "PG-13"
 new_movie3["studio_id"] = warnerbros["id"]
 new_movie3.save
+
+# Actors
 
 new_actor1 = Actor.new
 new_actor1["name"] = "Christian Bale"
@@ -196,6 +202,7 @@ gordonlevitt = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
 hathaway = Actor.find_by({"name" => "Anne Hathaway"})
 
 
+# Roles
 
 new_role1 = Role.new
 new_role1["movie_id"] = batmanbegins["id"]
@@ -266,7 +273,7 @@ new_role11.save
 new_role12 = Role.new
 new_role12["movie_id"] = thedarkknightrises["id"]
 new_role12["actor_id"] = oldman["id"]
-new_role12["character_name"] = "Commissioner Gordone"
+new_role12["character_name"] = "Commissioner Gordon"
 new_role12.save
 
 new_role13 = Role.new
