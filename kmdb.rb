@@ -183,10 +183,12 @@ new_actor11 = Actor.new
 new_actor11["name"] = "Anne Hathaway"
 new_actor11.save
 
+
 # Build movie_id
 batmanbegins = Movie.find_by({"title" => "Batman Begins"})
 thedarkknight = Movie.find_by({"title" => "The Dark Knight"})
 thedarkknightrises = Movie.find_by({"title" => "The Dark Knight Rises"})
+
 
 # Build actor_id
 bale = Actor.find_by({"name" => "Christian Bale"})
@@ -301,28 +303,30 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+# The left side of the equations is the entire hash, the right side is looking into that hash
 
 for movie in Movie.all
     title = movie["title"]
     year_released = movie["year_released"]
     rated = movie["rated"]
-    studio = movie["studio_id"]
-    puts "#{title} #{year_released} #{rated} #{studio}"
+    studio = Studio.find_by({"id" => movie["studio_id"]})
+    name = studio["name"]
+    puts "#{title} #{year_released} #{rated} #{name}"
 end
 
 
-# Prints a header for the cast output
+# # Prints a header for the cast output
 puts ""
 puts "Top Cast"
 puts "========"
 puts ""
 
-# Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+# # Query the cast data and loop through the results to display the cast output for each movie.
+# # TODO!
 
 for role in Role.all
     title = role["movie_id"]
     actor = role["actor_id"]
-    role = role["role_id"]
+    role = role["character_name"]
     puts "#{title} #{actor} #{role}"
 end
