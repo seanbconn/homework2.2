@@ -320,9 +320,9 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
-for top_cast in Role.all
-    title = top_cast["movie_id"]
-    actor = top_cast["actor_id"]
-    role = top_cast["role_id"]
+for role in Role.all
+    title = role["movie_id"]
+    actor = role["actor_id"]
+    role = role["role_id"]
     puts "#{title} #{actor} #{role}"
 end
